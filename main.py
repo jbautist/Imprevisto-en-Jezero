@@ -10,21 +10,16 @@ def comprobar_entrada(l1, l2, lu):
     Parámetros: l1=letra opción 1, l2=letra opción 2 y lu=letra del usuario.
     Retorna: True si la entrada es válida.
     '''
-    if not lu.isalpha():
-        print('\nERROR: has ingresado un carácter incorrecto\n')
-    elif lu.upper() == l1 or lu.upper() == l2:
-        return True
-    else:
-        print('\nERROR: has ingresado una letra incorrecta\n')
-
+    return True if lu == l1 or lu == l2 else print('\nERROR: ha ingresado un carácter inválido.\n')
+    
 
 def comenzar_inicio():
     '''Comenzar historia desde el inicio'''
     while True:
-        respuesta = input('¿Quiere comenzar de nuevo? [S/N] ')
+        respuesta = input('¿Quiere comenzar de nuevo? [S/N] ').upper()
         clearConsole()
         if comprobar_entrada('S', 'N', respuesta) == True:
-            inicio() if respuesta.upper() == 'S' else exit()
+            inicio() if respuesta == 'S' else exit()
 
 
 # Escenarios
@@ -55,9 +50,9 @@ def comienzo_decisiones():
     print('''[A] Abres la compuerta para ver si es alguien de la tripulación que pudo sobrevivir.
 [B] Esperas que pase para ver quién es.\n''')
     while True:
-        respuesta = input()
+        respuesta = input().upper()
         if comprobar_entrada('A', 'B', respuesta) == True:
-            escenario_A() if respuesta.upper() == 'A' else escenario_B()
+            escenario_A() if respuesta == 'A' else escenario_B()
 
 
 def escenario_A():
@@ -68,9 +63,9 @@ de gran tamaño.\n''')
     print('''[A] Peleas contra él.
 [B] Intentas hacerle entender de que no quieres hacerle daño.\n''')
     while True:
-        respuesta = input()
+        respuesta = input().upper()
         if comprobar_entrada('A', 'B', respuesta) == True:
-            escenario_C() if respuesta.upper() == 'A' else escenario_D()
+            escenario_C() if respuesta == 'A' else escenario_D()
 
 
 def escenario_B():
@@ -81,9 +76,9 @@ con una gran armadura y una espada de gran tamaño.\n''')
     print('''[A] Esperas a que se vaya.
 [B] Abres la compuerta e intentas hacerle entender de que no quieres hacerle daño.\n''')
     while True:
-        respuesta = input()
+        respuesta = input().upper()
         if comprobar_entrada('A', 'B', respuesta) == True:
-            escenario_E() if respuesta.upper() == 'A' else escenario_D()
+            escenario_E() if respuesta == 'A' else escenario_D()
 
 
 def escenario_C():
@@ -111,9 +106,9 @@ una llave francesa de 30 pulgadas y la tomas como arma.\n''')
     print('''[A] Lo golpeas con la llave en la cabeza.
 [B] Esperas a que se vaya para no entrar en conflicto.\n''')
     while True:
-        respuesta = input()
+        respuesta = input().upper()
         if comprobar_entrada('A', 'B', respuesta) == True:
-            escenario_G() if respuesta.upper() == 'A' else escenario_F()
+            escenario_G() if respuesta == 'A' else escenario_F()
 
 
 def escenario_F():
